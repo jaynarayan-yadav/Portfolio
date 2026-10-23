@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Rivera | Senior Full Stack Engineer & Designer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-card border-b border-gray-200/50 dark:border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent hover:opacity-80 transition">
+                AR<span class="text-blue-500">.</span>dev
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+                <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
+                <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
+                <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+            </nav>
+
+            <!-- Actions (Theme Toggle & CTA) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button id="themeToggle" aria-label="Toggle Dark Mode" class="p-2.5 rounded-full bg-gray-200/80 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition">
+                    <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-lg hidden dark:block text-amber-400"></i>
+                </button>
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-blue-500/25 transition duration-200 transform hover:-translate-y-0.5">
+                    Let's Talk
+                </a>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div class="flex items-center space-x-3 md:hidden">
+                <button id="mobileThemeToggle" aria-label="Toggle Dark Mode" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                    <i class="fa-solid fa-moon text-base dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-base hidden dark:block text-amber-400"></i>
+                </button>
+                <button id="menuBtn" aria-label="Open Menu" class="p-2 text-gray-700 dark:text-gray-300 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-6 py-4 space-y-4 shadow-xl">
+            <a href="#about" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 font-medium border-b border-gray-100 dark:border-gray-800">About</a>
+            <a href="#skills" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 font-medium border-b border-gray-100 dark:border-gray-800">Skills</a>
+            <a href="#projects" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 font-medium border-b border-gray-100 dark:border-gray-800">Projects</a>
+            <a href="#experience" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 font-medium border-b border-gray-100 dark:border-gray-800">Experience</a>
+            <a href="#contact" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 font-medium">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-[90vh] flex items-center justify-center relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
+            <!-- Background Decorative Glows -->
+            <div class="absolute -top-24 -left-20 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 -right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <span class="inline-block py-1 px-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 mb-6 border border-blue-200 dark:border-blue-800">
+                    Available for New Opportunities
+                </span>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Crafting <span class="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Digital Experiences</span> with Code & Passion.
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+                    Hi, I'm <strong class="text-gray-900 dark:text-white font-semibold">Alex Rivera</strong>. A Senior Full Stack Engineer specializing in building scalable web applications, modern interfaces, and high-performance cloud solutions.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold shadow-lg shadow-blue-500/30 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        View Projects <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full font-semibold transition flex items-center justify-center gap-2">
+                        Contact Me
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-12 flex justify-center space-x-6 text-gray-600 dark:text-gray-400">
+                    <a href="#" aria-label="GitHub" class="hover:text-blue-600 dark:hover:text-blue-400 text-xl transition"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="hover:text-blue-600 dark:hover:text-blue-400 text-xl transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter" class="hover:text-blue-600 dark:hover:text-blue-400 text-xl transition"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Dribbble" class="hover:text-blue-600 dark:hover:text-blue-400 text-xl transition"><i class="fa-brands fa-dribbble"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-900/50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">About Me</h2>
+                    <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Image Card -->
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" 
+                             alt="Alex Rivera Profile" 
+                             class="relative rounded-2xl shadow-xl w-full h-[400px] object-cover"
+                             onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Alex+Rivera'">
+                    </div>
+
+                    <!-- Bio Details -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                            Transforming complex problems into elegant solutions
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            With over 6 years of professional experience in software engineering, I bridge the gap between design and robust architecture. I build modern frontend systems and resilient microservices for fast-growing companies and startups.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            When I'm not writing code, you can find me contributing to open-source projects, writing technical blog posts, or exploring hiking trails.
+                        </p>
+
+                        <!-- Quick Highlights Grid -->
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-800">
+                                <span class="block text-2xl font-extrabold text-blue-600 dark:text-blue-400">6+</span>
+                                <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Years Experience</span>
+                            </div>
+                            <div class="p-4 rounded-xl bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-800">
+                                <span class="block text-2xl font-extrabold text-blue-600 dark:text-blue-400">40+</span>
+                                <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Projects Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Technical Skills</h2>
+                    <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full mb-8"></div>
+                    
+                    <!-- Skill Category Filter Buttons -->
+                    <div class="flex flex-wrap justify-center gap-2 mb-10" id="skillFilters">
+                        <button class="skill-filter-btn active px-4 py-2 rounded-full text-sm font-medium transition bg-blue-600 text-white" data-category="all">All</button>
+                        <button class="skill-filter-btn px-4 py-2 rounded-full text-sm font-medium transition bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white" data-category="frontend">Frontend</button>
+                        <button class="skill-filter-btn px-4 py-2 rounded-full text-sm font-medium transition bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white" data-category="backend">Backend</button>
+                        <button class="skill-filter-btn px-4 py-2 rounded-full text-sm font-medium transition bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white" data-category="tools">DevOps & Tools</button>
+                    </div>
+                </div>
+
+                <!-- Skills Grid Container -->
+                <div id="skillsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic Skills injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-900/50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Featured Projects</h2>
+                    <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Project Cards Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                    <!-- Dynamic Projects injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Work Experience</h2>
+                    <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative border-l-2 border-gray-200 dark:border-gray-800 ml-4 sm:ml-32 space-y-12">
+                    
+                    <!-- Item 1 -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-gray-950 group-hover:scale-125 transition"></div>
+                        <div class="sm:absolute sm:-left-36 sm:top-1 text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1 sm:mb-0">
+                            2022 - Present
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow-md border border-gray-100 dark:border-gray-800">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Senior Full Stack Engineer</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">TechCorp Solutions Inc.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Led the core architecture overhaul for SaaS product serving 100k+ active users. Improved API latency by 40% and built real-time analytics dashboard with React and WebSockets.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-gray-950 group-hover:scale-125 transition"></div>
+                        <div class="sm:absolute sm:-left-36 sm:top-1 text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1 sm:mb-0">
+                            2020 - 2022
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow-md border border-gray-100 dark:border-gray-800">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Frontend Software Engineer</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Innovate Labs</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Built modular UI components, created responsive web interfaces, and collaborated closely with product designers to implement pixel-perfect user flows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-gray-950 group-hover:scale-125 transition"></div>
+                        <div class="sm:absolute sm:-left-36 sm:top-1 text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1 sm:mb-0">
+                            2018 - 2020
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow-md border border-gray-100 dark:border-gray-800">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Junior Web Developer</h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Digital Craft Studio</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Developed responsive client websites using HTML/CSS, JavaScript, and Node.js. Maintained custom CMS templates and integrated third-party payment gateways.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-900/50">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Get In Touch</h2>
+                    <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full mb-4"></div>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+                        Have a project in mind or want to explore potential collaborations? Feel free to send a message!
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-5 gap-8">
+                    <!-- Contact Info -->
+                    <div class="md:col-span-2 space-y-6">
+                        <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow-sm border border-gray-200/60 dark:border-gray-800 flex items-start space-x-4">
+                            <div class="p-3 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-xl">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Email Me</h4>
+                                <p class="font-medium text-gray-900 dark:text-white mt-1">alex.rivera@example.com</p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow-sm border border-gray-200/60 dark:border-gray-800 flex items-start space-x-4">
+                            <div class="p-3 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-xl">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Location</h4>
+                                <p class="font-medium text-gray-900 dark:text-white mt-1">San Francisco, CA (Remote)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <form id="contactForm" class="md:col-span-3 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-md border border-gray-200/60 dark:border-gray-800 space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300" for="name">Your Name</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300" for="email">Email Address</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300" for="message">Message</label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 dark:border-gray-800 py-8 px-4 text-center text-sm text-gray-500 dark:text-gray-400">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© <span id="year"></span> Alex Rivera. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#hero" class="hover:text-blue-600 transition">Back to Top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal Preview -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
+        <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative border border-gray-200 dark:border-gray-800 max-h-[90vh] overflow-y-auto">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white text-2xl">
+                &times;
+            </button>
+            <img id="modalImage" src="" alt="Project Preview" class="w-full h-64 object-cover rounded-xl mb-6">
+            <h3 id="modalTitle" class="text-2xl font-bold mb-2 text-gray-900 dark:text-white"></h3>
+            <p id="modalDesc" class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed"></p>
+            <div id="modalTags" class="flex flex-wrap gap-2 mb-6"></div>
+            <div class="flex gap-4">
+                <a id="modalDemoLink" href="#" target="_blank" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium text-sm transition flex items-center gap-2">
+                    Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+                <a id="modalCodeLink" href="#" target="_blank" class="px-6 py-2.5 bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-xl font-medium text-sm transition flex items-center gap-2">
+                    GitHub <i class="fa-brands fa-github text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-5 py-3 rounded-xl shadow-2xl transition transform translate-y-24 opacity-0 z-50 text-sm font-medium flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-green-400 dark:text-green-600"></i>
+        <span id="toastMessage">Message sent successfully!</span>
+    </div>
+
+    <script>
+        // Data Configuration
+        const skillsData = [
+            { name: "JavaScript / TypeScript", level: "95%", category: "frontend" },
+            { name: "React / Next.js", level: "90%", category: "frontend" },
+            { name: "Tailwind CSS", level: "95%", category: "frontend" },
+            { name: "Node.js / Express", level: "85%", category: "backend" },
+            { name: "Python / FastApi", level: "80%", category: "backend" },
+            { name: "PostgreSQL / Prisma", level: "85%", category: "backend" },
+            { name: "Docker / CI/CD", level: "75%", category: "tools" },
+            { name: "Git & GitHub", level: "90%", category: "tools" },
+            { name: "AWS / Vercel Cloud", level: "80%", category: "tools" }
+        ];
+
+        const projectsData = [
+            {
+                id: 1,
+                title: "AI Canvas Workspace",
+                description: "Interactive real-time design & workflow canvas powered by generative AI APIs and WebSocket collaboration.",
+                tags: ["React", "TypeScript", "Tailwind", "Node.js"],
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+                demo: "#",
+                code: "#"
+            },
+            {
+                id: 2,
+                title: "Cloud Analytics Platform",
+                description: "High-performance enterprise dashboard monitoring distributed systems and server latency metrics.",
+                tags: ["Next.js", "PostgreSQL", "Recharts", "Docker"],
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+                demo: "#",
+                code: "#"
+            },
+            {
+                id: 3,
+                title: "E-Commerce Micro-Frontend",
+                description: "Fast multi-vendor marketplace featuring headless checkout, automated inventory tracking, and stripe billing.",
+                tags: ["Vue.js", "Python", "FastAPI", "Tailwind"],
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+                demo: "#",
+                code: "#"
+            }
+        ];
+
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Theme Toggle Logic
+        const themeToggles = [document.getElementById('themeToggle'), document.getElementById('mobileThemeToggle')];
+        const html = document.documentElement;
+
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        themeToggles.forEach(btn => {
+            btn?.addEventListener('click', () => {
+                setTheme(!html.classList.contains('dark'));
+            });
+        });
+
+        // Initialize Theme Preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            setTheme(true);
+        } else {
+            setTheme(false);
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close Mobile Menu on Click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Render Skills
+        const skillsGrid = document.getElementById('skillsGrid');
+        function renderSkills(category = 'all') {
+            skillsGrid.innerHTML = '';
+            const filtered = category === 'all' ? skillsData : skillsData.filter(s => s.category === category);
+            
+            filtered.forEach(skill => {
+                const skillEl = document.createElement('div');
+                skillEl.className = "p-5 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition";
+                skillEl.innerHTML = `
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-semibold text-gray-800 dark:text-gray-200">${skill.name}</span>
+                        <span class="text-xs font-bold text-blue-600 dark:text-blue-400">${skill.level}</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-800 h-2 rounded-full overflow-hidden">
+                        <div class="bg-blue-600 h-full rounded-full transition-all duration-1000" style="width: ${skill.level}"></div>
+                    </div>
+                `;
+                skillsGrid.appendChild(skillEl);
+            });
+        }
+        renderSkills();
+
+        // Skill Filters Event Listeners
+        const skillFilterBtns = document.querySelectorAll('.skill-filter-btn');
+        skillFilterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                skillFilterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-blue-600', 'text-white');
+                    b.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+                });
+                btn.classList.add('active', 'bg-blue-600', 'text-white');
+                btn.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+                renderSkills(btn.dataset.category);
+            });
+        });
+
+        // Render Projects
+        const projectsGrid = document.getElementById('projectsGrid');
+        function renderProjects() {
+            projectsGrid.innerHTML = '';
+            projectsData.forEach(proj => {
+                const card = document.createElement('div');
+                card.className = "group rounded-2xl overflow-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition duration-300 flex flex-col";
+                card.innerHTML = `
+                    <div class="relative overflow-hidden h-48">
+                        <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Project+Preview'">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">${proj.title}</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 flex-grow">${proj.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            ${proj.tags.map(t => `<span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300">${t}</span>`).join('')}
+                        </div>
+                        <button onclick="openModal(${proj.id})" class="w-full py-2.5 bg-gray-100 dark:bg-gray-800 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 rounded-xl font-medium text-sm transition">
+                            View Details
+                        </button>
+                    </div>
+                `;
+                projectsGrid.appendChild(card);
+            });
+        }
+        renderProjects();
+
+        // Modal Logic
+        const modal = document.getElementById('projectModal');
+        const closeModal = document.getElementById('closeModal');
+
+        window.openModal = function(id) {
+            const project = projectsData.find(p => p.id === id);
+            if (!project) return;
+
+            document.getElementById('modalImage').src = project.image;
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalDesc').textContent = project.description;
+            
+            const tagsContainer = document.getElementById('modalTags');
+            tagsContainer.innerHTML = project.tags.map(t => `<span class="px-3 py-1 text-xs font-semibold rounded-md bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300">${t}</span>`).join('');
+
+            document.getElementById('modalDemoLink').href = project.demo;
+            document.getElementById('modalCodeLink').href = project.code;
+
+            modal.classList.remove('hidden');
+        };
+
+        closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.add('hidden');
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('Message sent successfully! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Toast Notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
