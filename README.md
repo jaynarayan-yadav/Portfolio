@@ -1,26 +1,83 @@
-# Portfolio Project Hub
+# Jay Narayan Yadav — Portfolio
 
-This directory contains the portfolio project and dedicated workspaces for each tool and technology featured in the portfolio.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-jaynarayan--yadav.github.io%2FPortfolio-E8621A?style=for-the-badge&logo=githubpages&logoColor=white)](https://jaynarayan-yadav.github.io/Portfolio/)
+[![GitHub](https://img.shields.io/badge/GitHub-jaynarayan--yadav-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jaynarayan-yadav)
+[![Tech Stack](https://img.shields.io/badge/Focus-AI%20%2F%20Machine%20Learning-blue?style=for-the-badge)](https://jaynarayan-yadav.github.io/Portfolio/)
 
-## Files
-- `modern_portfolio_template.html`: Original portfolio template file.
-- `index.html`: Entry point for viewing and serving the portfolio in a web browser.
+> **Personal portfolio site of Jay Narayan Yadav** — AI/ML Engineering student building machine learning systems from first principles.
 
-## Tool Folders
-Each tool and technology has its own dedicated folder equipped with documentation and starter snippets:
+🌐 **Live Website**: [https://jaynarayan-yadav.github.io/Portfolio/](https://jaynarayan-yadav.github.io/Portfolio/)
 
-### Frontend
-- [javascript-typescript](./javascript-typescript/): JavaScript & TypeScript (95%)
-- [react-nextjs](./react-nextjs/): React & Next.js (90%)
-- [tailwind-css](./tailwind-css/): Tailwind CSS (95%)
-- [vuejs](./vuejs/): Vue.js (Featured in Projects)
+---
 
-### Backend
-- [nodejs-express](./nodejs-express/): Node.js & Express (85%)
-- [python-fastapi](./python-fastapi/): Python & FastAPI (80%)
-- [postgresql-prisma](./postgresql-prisma/): PostgreSQL & Prisma (85%)
+## 📌 About
 
-### DevOps & Tools
-- [docker-cicd](./docker-cicd/): Docker & CI/CD (75%)
-- [git-github](./git-github/): Git & GitHub (90%)
-- [aws-vercel](./aws-vercel/): AWS & Vercel Cloud (80%)
+I'm an AI/ML student based in Delhi focused on building machine learning systems from first principles. I care about reproducibility, zero data leakage in production pipelines, and clean software architecture.
+
+- **Languages:** Python, C++, SQL, Bash
+- **ML / Data:** PyTorch, NumPy, pandas, scikit-learn
+- **DevOps & Infrastructure:** Docker, Linux, Git, GitHub Actions, PostgreSQL, MongoDB
+
+---
+
+## 🚀 Flagship Project: DataEngine
+
+**DataEngine** is a Python package that profiles, diagnoses, and cleans pandas DataFrames.
+
+- **Signature Concept:** Interactive pre-cleaning diagnosis that asks the user `proceed / abort / customize` before modifying data. Aborting returns data completely untouched.
+- **Leakage Prevention:** Scikit-learn-style `fit` / `transform` API ensuring train-set statistics never leak into test or validation splits.
+- **Production-Ready:** Serialization (`save` / `load`), CLI tool, and 67+ passing unit tests.
+
+---
+
+## 📂 Repository Structure
+
+```text
+├── index.html                     # Live single-page portfolio (HTML/CSS/JS)
+├── 20251223_124440.jpg            # Profile photography
+├── build_portfolio.py             # Portfolio build script
+├── modern_portfolio_template.html # Original template reference
+│
+├── tools/                         # Modular tool category directories
+│   ├── frontend/
+│   ├── backend/
+│   └── devops/
+│
+├── python-fastapi/                # Python & FastAPI starter & notes
+├── docker-cicd/                   # Dockerfile & CI/CD workflow references
+├── git-github/                    # GitHub Actions deployment pipelines
+├── postgresql-prisma/             # Database schema & notes
+├── react-nextjs/                  # Frontend component playground
+├── javascript-typescript/         # TypeScript patterns
+├── tailwind-css/                  # Tailwind configurations
+├── nodejs-express/                # Node.js backend templates
+├── aws-vercel/                    # Cloud deployment manifests
+└── vuejs/                         # Component examples
+```
+
+---
+
+## 💻 Local Development
+
+To run and preview the portfolio locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/jaynarayan-yadav/Portfolio.git
+
+# Navigate to the project directory
+cd Portfolio
+
+# Start a local HTTP server
+python3 -m http.server 8000
+```
+
+Open [http://localhost:8000](http://localhost:8000) in your browser.
+
+---
+
+## 📬 Contact
+
+- **Email:** [zayyyadavv@gmail.com](mailto:zayyyadavv@gmail.com)
+- **GitHub:** [@jaynarayan-yadav](https://github.com/jaynarayan-yadav)
+- **Portfolio:** [jaynarayan-yadav.github.io/Portfolio](https://jaynarayan-yadav.github.io/Portfolio/)
