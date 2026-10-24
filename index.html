@@ -220,171 +220,275 @@ hr.rule { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
 }
 
 /* ============================================================
-   HERO
+   BENTO LANDING SECTION (SKETCH REPLICATION)
    ============================================================ */
-.hero {
-  min-height: 100svh;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  padding: 7rem 1.5rem 4rem;
+.bento-section {
   max-width: var(--wide);
   margin: 0 auto;
-  position: relative;
-}
-@media (min-width: 700px) {
-  .hero { grid-template-columns: 1fr 280px; gap: 4rem; }
+  padding: 6rem 1.5rem 3.5rem;
 }
 
-.hero-text {}
-.hero-eyebrow {
-  font-family: var(--mono);
-  font-size: .75rem;
-  color: var(--ink-3);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
+.bento-container {
   display: flex;
-  align-items: center;
-  gap: .75rem;
+  flex-direction: column;
+  gap: 1.25rem;
 }
-.hero-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 28px;
-  height: 1px;
-  background: var(--accent);
-}
-h1.hero-title {
-  font-family: var(--serif);
-  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-  font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -.03em;
-  color: var(--ink);
-  margin-bottom: 1.5rem;
-}
-h1.hero-title em {
-  font-style: italic;
-  color: var(--accent);
-}
-.hero-sub {
-  font-size: 1.05rem;
-  color: var(--ink-2);
-  max-width: 480px;
-  margin-bottom: 2.25rem;
-  line-height: 1.65;
-}
-/* Intent strip */
-.hero-intent {
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  font-family: var(--mono);
-  font-size: .8rem;
-  color: var(--ink-3);
-  border: 1px solid var(--rule-2);
-  padding: .5rem .9rem;
-  margin-bottom: 2.5rem;
-  letter-spacing: .02em;
-}
-.hero-intent span { color: var(--accent); }
-/* Links row */
-.hero-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .65rem;
-}
-.hero-link {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  font-family: var(--mono);
-  font-size: .78rem;
-  color: var(--ink-2);
-  text-decoration: none;
-  border: 1px solid var(--rule-2);
-  padding: .42rem .8rem;
-  transition: all .15s;
-  letter-spacing: .02em;
-}
-.hero-link:hover {
-  color: var(--accent);
-  border-color: var(--accent-dim);
-  background: var(--accent-tint);
-}
-.hero-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; }
 
-/* Photo frame */
-.hero-photo-wrap {
-  position: relative;
-  order: -1;
-}
-@media (min-width: 700px) { .hero-photo-wrap { order: 2; } }
-.hero-photo-frame {
-  position: relative;
-  width: 100%;
-  max-width: 260px;
-  margin: 0 auto;
-}
-.hero-photo-frame::before {
-  content: '';
-  position: absolute;
-  inset: -6px -6px 6px 6px;
+/* Base Card Style */
+.bento-card {
+  background: var(--bg-2);
   border: 1px solid var(--rule-2);
-  z-index: 0;
+  border-radius: 12px;
+  position: relative;
+  transition: border-color .2s ease;
 }
-.hero-photo-frame img {
-  display: block;
+
+.bento-card:hover {
+  border-color: var(--ink-3);
+}
+
+/* Bento Layout Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 860px) {
+  .bento-grid {
+    grid-template-columns: 320px 1fr;
+    align-items: stretch;
+  }
+}
+
+/* Left Column: Photo & Location & 2x2 Social Grid */
+.bento-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Photo Card */
+.bento-photo-card {
+  padding: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-photo-frame {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--bg-3);
+}
+
+.bento-photo-frame img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
-  position: relative;
-  z-index: 1;
-  filter: grayscale(15%) contrast(1.05);
-}
-.hero-photo-caption {
-  font-family: var(--mono);
-  font-size: .68rem;
-  color: var(--ink-3);
-  text-align: right;
-  margin-top: .5rem;
-  letter-spacing: .04em;
+  display: block;
+  filter: grayscale(12%) contrast(1.05);
+  transition: transform .35s ease;
 }
 
-/* ============================================================
-   ABOUT / NOTE
-   ============================================================ */
-.note-box {
-  border-left: 2px solid var(--accent);
-  padding-left: 1.5rem;
-  margin-top: 1.25rem;
+.bento-photo-card:hover .bento-photo-frame img {
+  transform: scale(1.02);
 }
-.note-box p { font-size: 1.05rem; line-height: 1.75; }
 
-/* ============================================================
-   RECORD TABLE (about metadata in Aahana's style)
-   ============================================================ */
-.record-table {
-  display: grid;
-  gap: .55rem;
-  margin-top: 1.5rem;
-  font-family: var(--mono);
-  font-size: .82rem;
+/* Location Card */
+.bento-location-card {
+  padding: 0.85rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
-.record-row {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: .5rem;
-  align-items: baseline;
-  padding: .4rem 0;
-  border-bottom: 1px solid var(--rule);
+
+.location-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  display: inline-block;
+  flex-shrink: 0;
+  animation: bento-pulse 2s infinite ease-in-out;
+}
+
+@keyframes bento-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.location-text {
+  font-family: var(--mono);
+  font-size: 0.84rem;
   color: var(--ink-2);
+  letter-spacing: 0.02em;
 }
-.record-row:last-child { border-bottom: none; }
-.record-key { color: var(--ink-3); letter-spacing: .04em; }
-.record-val { color: var(--ink); }
+
+/* Left Column 2x2 Social Grid: [github, linkedin] / [mail, twitter] */
+.bento-social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.bento-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: var(--bg-2);
+  border: 1px solid var(--rule-2);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink-2);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all .15s ease;
+}
+
+.bento-social-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.bento-social-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  flex-shrink: 0;
+  transition: stroke .15s ease;
+}
+
+.bento-social-btn:hover svg {
+  stroke: #fff;
+}
+
+/* Right Bento Card: About */
+.bento-about-card {
+  padding: 2.25rem 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-about-header {
+  margin-bottom: 0.85rem;
+}
+
+.bento-tagline {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.bento-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.bento-about-desc {
+  font-size: 0.98rem;
+  color: var(--ink-2);
+  line-height: 1.65;
+  margin-bottom: 1.35rem;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.15rem;
+}
+
+/* About Metadata Table (Program, College, Focus, Outside code) */
+.bento-meta-table {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.35rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+
+.bento-meta-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  line-height: 1.45;
+}
+
+.bento-meta-key {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+.bento-meta-val {
+  color: var(--ink);
+}
+
+/* Bento Currently Box */
+.bento-currently-box {
+  background: var(--bg-3);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.1rem 1.35rem;
+  margin-top: auto;
+}
+
+.bento-currently-title {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.bento-currently-list {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.bento-currently-list li {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  align-items: baseline;
+  color: var(--ink-2);
+  font-family: var(--mono);
+}
+
+.bc-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  font-weight: 500;
+}
 
 /* ============================================================
    DATAENGINE CASE STUDY
@@ -742,107 +846,124 @@ body::after {
      TOPBAR
      ============================================================ -->
 <header class="topbar" id="topbar" role="banner">
-  <a href="#hero" class="topbar-logo">Jay Narayan Yadav<span>.</span></a>
+  <a href="#hero" class="topbar-logo">Jay<span>.</span></a>
   <nav class="topbar-nav" aria-label="Primary navigation">
-    <a href="#about">Note</a>
-    <a href="#dataengine">DataEngine</a>
-    <a href="#work">Work</a>
-    <a href="#currently">Currently</a>
-    <a href="#toolbox">Tools</a>
-    <a href="#contact">Contact</a>
+    <a href="#dataengine">Projects</a>
+    <a href="#toolbox">Toolbox</a>
+    <a href="./Jay_Narayan_Yadav_Resume.pdf" target="_blank" rel="noopener">Resume &#x2197;</a>
   </nav>
 </header>
 
 <main>
 
 <!-- ============================================================
-     HERO
+     HERO & ABOUT BENTO CARD (SKETCH REPLICATION)
      ============================================================ -->
-<section class="hero" id="hero" aria-labelledby="hero-title">
-  <div class="hero-text">
-    <p class="hero-eyebrow">B.Tech CSE 2029 &bull; Delhi &bull; AI/ML</p>
+<section class="bento-section" id="hero" aria-labelledby="hero-title">
+  <div class="bento-container">
+    
+    <div class="bento-grid">
+      
+      <!-- Left Column: Photo, Location, 2x2 Social Grid -->
+      <div class="bento-left-col">
+        <div class="bento-card bento-photo-card" aria-label="Passport photos">
+          <div class="bento-photo-frame">
+            <img src="./20251223_124440.jpg" alt="Jay Narayan Yadav" loading="eager">
+          </div>
+        </div>
+        
+        <div class="bento-card bento-location-card">
+          <span class="location-dot"></span>
+          <span class="location-text">Noida, India</span>
+        </div>
 
-    <h1 id="hero-title" class="hero-title">
-      I build ML systems<br>
-      from <em>first principles,</em><br>
-      and my tools ask before<br>
-      they touch your data.
-    </h1>
+        <div class="bento-social-grid">
+          <a href="https://github.com/jaynarayan-yadav" target="_blank" rel="noopener" class="bento-social-btn" aria-label="GitHub Profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
 
-    <p class="hero-sub">
-      Most data-cleaning libraries mutate your DataFrame silently.
-      Mine shows you what it plans to do, then waits for a yes.
-    </p>
+          <a href="https://www.linkedin.com/in/jay-narayan-yadav-a086b7377/?isSelfProfile=true" target="_blank" rel="noopener" class="bento-social-btn" aria-label="LinkedIn Profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round"></path>
+              <rect x="2" y="9" width="4" height="12" stroke-linecap="round" stroke-linejoin="round"></rect>
+              <circle cx="4" cy="4" r="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
 
-    <div class="hero-intent">
-      <span>&#8594;</span>
-      Looking for: <span>ML Engineering Internship &bull; Research &bull; Open-source</span>
+          <a href="mailto:zayyadavv@gmail.com" class="bento-social-btn" aria-label="Send Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"></path>
+              <polyline points="22,6 12,13 2,6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            </svg>
+            <span>mail</span>
+          </a>
+
+          <a href="https://twitter.com" target="_blank" rel="noopener" class="bento-social-btn" aria-label="Twitter Profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>twitter</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: About Details, Meta Table, Currently -->
+      <div class="bento-card bento-about-card" id="about">
+        <div class="bento-about-header">
+          <span class="bento-tagline">I build ML systems from first principles</span>
+          <h1 id="hero-title" class="bento-title">About</h1>
+        </div>
+
+        <p class="bento-about-desc">
+          B.Tech CSE student (2029) building machine learning systems from first principles. 
+          I'd rather understand why the gradient explodes than call a library and move on. 
+          Outside code: reading. Tests that fail loudly are a feature, not a chore.
+        </p>
+
+        <div class="bento-meta-table">
+          <div class="bento-meta-row">
+            <span class="bento-meta-key">Program</span>
+            <span class="bento-meta-val">B.Tech CSE, 2029</span>
+          </div>
+          <div class="bento-meta-row">
+            <span class="bento-meta-key">College</span>
+            <span class="bento-meta-val">Bennett University</span>
+          </div>
+          <div class="bento-meta-row">
+            <span class="bento-meta-key">Focus</span>
+            <span class="bento-meta-val">MACHINE LEARNING, MLOPS, data engineering</span>
+          </div>
+          <div class="bento-meta-row">
+            <span class="bento-meta-key">Outside code</span>
+            <span class="bento-meta-val">use brain to write best things</span>
+          </div>
+        </div>
+
+        <div class="bento-currently-box">
+          <span class="bento-currently-title">Currently</span>
+          <ul class="bento-currently-list">
+            <li>
+              <span class="bc-tag">Reading</span>
+              <span>The Pragmatic Programmer</span>
+            </li>
+            <li>
+              <span class="bc-tag">Learning</span>
+              <span>computer vision using pytorch</span>
+            </li>
+            <li>
+              <span class="bc-tag">Building</span>
+              <span>implementing a research from scratch (<a href="https://arxiv.org/abs/2307.08691" target="_blank" rel="noopener" class="text-link">link of research paper</a>)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
-    <div class="hero-links">
-      <a href="https://github.com/jaynarayan-yadav" target="_blank" rel="noopener" class="hero-link" aria-label="GitHub profile">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        github.com/jaynarayan-yadav
-      </a>
-      <a href="https://linkedin.com/in/jay-narayan-yadav-a086b7377" target="_blank" rel="noopener" class="hero-link" aria-label="LinkedIn profile">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round"></path><rect x="2" y="9" width="4" height="12" stroke-linecap="round" stroke-linejoin="round"></rect><circle cx="4" cy="4" r="2" stroke-linecap="round" stroke-linejoin="round"></circle></svg>
-        LinkedIn
-      </a>
-      <a href="mailto:zayyadavv@gmail.com" class="hero-link" aria-label="Send email">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"></path><polyline points="22,6 12,13 2,6" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
-        zayyadavv@gmail.com
-      </a>
-    </div>
-  </div>
-
-  <div class="hero-photo-wrap" aria-label="Author photo">
-    <div class="hero-photo-frame">
-      <img src="./20251223_124440.jpg" alt="Jay Narayan Yadav" loading="eager">
-      <p class="hero-photo-caption">Jay Narayan Yadav / Delhi, 2025</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     ABOUT / NOTE
-     ============================================================ -->
-<section class="section reveal" id="about" aria-labelledby="about-title">
-  <span class="kicker">01 &mdash; Personal Note</span>
-  <h2 id="about-title" class="section-heading">Hi, I'm Jay.</h2>
-
-  <div class="note-box">
-    <p>
-      B.Tech CSE student (2029) in Delhi. I work on ML from first principles &mdash;
-      I'd rather understand why the gradient explodes than call a library and move on.
-      Outside code: reading. Tests that fail loudly are a feature, not a chore.
-    </p>
-  </div>
-
-  <div class="record-table reveal">
-    <div class="record-row">
-      <span class="record-key">Name</span>
-      <span class="record-val">Jay Narayan Yadav</span>
-    </div>
-    <div class="record-row">
-      <span class="record-key">Program</span>
-      <span class="record-val">B.Tech Computer Science &amp; Engineering, 2029</span>
-    </div>
-    <div class="record-row">
-      <span class="record-key">College</span>
-      <span class="record-val">[TODO: College name]</span>
-    </div>
-    <div class="record-row">
-      <span class="record-key">City</span>
-      <span class="record-val">Delhi, India</span>
-    </div>
-    <div class="record-row">
-      <span class="record-key">Focus</span>
-      <span class="record-val">Machine Learning &bull; Systems &bull; Data Engineering</span>
-    </div>
-    <div class="record-row">
-      <span class="record-key">Outside code</span>
-      <span class="record-val">Reading &mdash; papers, technical books, the occasional novel</span>
-    </div>
   </div>
 </section>
 

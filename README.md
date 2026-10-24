@@ -33,26 +33,11 @@ I'm an AI/ML student based in Delhi focused on building machine learning systems
 ## 📂 Repository Structure
 
 ```text
-├── index.html                     # Live single-page portfolio (HTML/CSS/JS)
-├── 20251223_124440.jpg            # Profile photography
-├── build_portfolio.py             # Portfolio build script
-├── modern_portfolio_template.html # Original template reference
-│
-├── tools/                         # Modular tool category directories
-│   ├── frontend/
-│   ├── backend/
-│   └── devops/
-│
-├── python-fastapi/                # Python & FastAPI starter & notes
-├── docker-cicd/                   # Dockerfile & CI/CD workflow references
-├── git-github/                    # GitHub Actions deployment pipelines
-├── postgresql-prisma/             # Database schema & notes
-├── react-nextjs/                  # Frontend component playground
-├── javascript-typescript/         # TypeScript patterns
-├── tailwind-css/                  # Tailwind configurations
-├── nodejs-express/                # Node.js backend templates
-├── aws-vercel/                    # Cloud deployment manifests
-└── vuejs/                         # Component examples
+├── index.html                  # Live single-page portfolio (HTML/CSS/JS)
+├── style.css                   # Custom styles and design tokens
+├── main.js                     # Interactive behaviors and terminal simulation
+├── 20251223_124440.jpg         # Profile photography
+└── Jay_Narayan_Yadav_Resume.pdf# Resume PDF
 ```
 
 ---
