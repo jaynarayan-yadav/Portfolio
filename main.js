@@ -53,6 +53,17 @@
     document.addEventListener('pointerleave', function () {
       document.body.classList.remove('cursor-ready');
     });
+    window.addEventListener('pointerdown', function (e) {
+      const hit = e.target.closest('a, button');
+      if (hit) {
+        hit.classList.add('btn-active-glow');
+        setTimeout(() => hit.classList.remove('btn-active-glow'), 350);
+      }
+      if (ret) {
+        ret.classList.add('clicking');
+        setTimeout(() => ret.classList.remove('clicking'), 250);
+      }
+    });
 
     (function retTick() {
       if (locked) {
